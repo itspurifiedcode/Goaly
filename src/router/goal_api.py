@@ -24,4 +24,3 @@ def add_goal(goal:schemas.GoalCreate, db: Session = Depends(getDB)):
 @router.get("/api/goals", tags=["goal"])
 def get_goals():
     return {"goals":[]}
-
