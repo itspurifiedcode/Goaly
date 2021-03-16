@@ -15,7 +15,6 @@ app.include_router(user_api.router)
 def error_response():
     raise HTTPException(status_code=404, detail="Item not found")
 
-
 @app.get("/")
 def read_root():
-    return {"Hello": "World"}
+    return {"Hello": "Merk"}

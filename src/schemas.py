@@ -6,23 +6,21 @@ from pydantic import BaseModel
 class GoalBase(BaseModel):
     title: str
     description: Optional[str] = None
-
-
+    userId: int
+    isActive: bool = True
+    class Config:
+        orm_mode = True
+    
 class GoalCreate(GoalBase):
-    pass
-
+    pass   
 
 class Goal(GoalBase):
     id: int
-    owner_id: int
-
-    class Config:
-        orm_mode = True
-
 
 class UserBase(BaseModel):
     email: str
-
+    class Config:
+        orm_mode = True
 
 class UserCreate(UserBase):
     password: str
@@ -35,3 +33,4 @@ class User(UserBase):
 
     class Config:
         orm_mode = True
+    
