@@ -25,10 +25,10 @@ class Goal(Base):
     isActive = Column(Boolean, default=True)
     owner = relationship("User", back_populates="goals")
 
-# class Todo(Base):
-#     __tablename__ = "todo"
+class Todo(Base):
+    __tablename__ = "todos"
 
-#     id = Column(Integer, primary_key=True, index=True)
-#     task = Column(String, index=True)
-#     ownerId = Column(Integer, ForeignKey("users.id"))
-#     isCompleted = Column(Boolean, default=True)
+    id = Column(Integer, primary_key=True, index=True)
+    task = Column(String, index=True)
+    goalId = Column(Integer,ForeignKey("goals.id"))
+    isActive = Column(Boolean, default=True)

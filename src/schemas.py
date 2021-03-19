@@ -34,3 +34,17 @@ class User(UserBase):
     class Config:
         orm_mode = True
     
+
+
+class TodoBase(BaseModel):
+    task: str
+    goalId: int
+    isActive: bool = True
+    class Config:
+        orm_mode = True
+    
+class TodoCreate(GoalBase):
+    pass   
+
+class Todo(GoalBase):
+    id: int
