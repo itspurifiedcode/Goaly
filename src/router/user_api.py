@@ -4,7 +4,7 @@ from fastapi.params import Depends
 from pydantic.main import BaseModel
 from sqlalchemy.orm.session import Session
 from src import models, schemas
-from src.helper import get_db as getDB
+from src.database import get_db as getDB
 from src.controller import users_controller
 
 router = APIRouter()
