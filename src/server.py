@@ -1,10 +1,8 @@
 from src.router import user_api
-from typing import Optional
 from fastapi import FastAPI, HTTPException
-from pydantic import BaseModel
 from .router import goal_api
-from . import  models, schemas
-from .database import SessionLocal, engine
+from . import  models
+from .database import engine
 
 models.Base.metadata.create_all(bind=engine)
 
