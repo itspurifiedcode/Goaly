@@ -3,7 +3,7 @@ from fastapi import APIRouter
 from pydantic.main import BaseModel
 from src import models, schemas
 from fastapi.params import Depends
-from src.helper import get_db as getDB
+from src.database import get_db as getDB
 from sqlalchemy.orm.session import Session
 from src.controller import todos_controller
 

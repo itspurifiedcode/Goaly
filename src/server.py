@@ -1,6 +1,5 @@
-from src.router import user_api
-from fastapi import FastAPI, HTTPException, Depends
-from .router import goal_api
+from fastapi import FastAPI, HTTPException
+from .router import goal_api,todo_api,user_api
 from . import  models
 from .database import engine
 
