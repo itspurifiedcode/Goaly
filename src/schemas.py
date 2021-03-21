@@ -3,11 +3,25 @@ from typing import List, Optional
 from pydantic import BaseModel
 
 
+class TodoBase(BaseModel):
+    task: str
+    goalId: int
+    isActive: bool = True
+    class Config:
+        orm_mode = True
+    
+class TodoCreate(TodoBase):
+    pass   
+class Todo(TodoBase):
+    pass   
+
+
 class GoalBase(BaseModel):
     title: str
     description: Optional[str] = None
     userId: int
     isActive: bool = True
+    tasks: List[Todo] = []
     class Config:
         orm_mode = True
     
@@ -36,15 +50,3 @@ class User(UserBase):
     
 
 
-class TodoBase(BaseModel):
-    task: str
-    goalId: int
-    isActive: bool = True
-    class Config:
-        orm_mode = True
-    
-class TodoCreate(GoalBase):
-    pass   
-
-class Todo(GoalBase):
-    id: int
