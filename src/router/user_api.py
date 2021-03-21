@@ -4,7 +4,7 @@ from fastapi.params import Depends
 from pydantic.main import BaseModel
 from sqlalchemy.orm.session import Session
 from src import models, schemas
-from src.helper import get_db as getDB
+from src.database import get_db as getDB
 from src.controller import users_controller
 
 router = APIRouter()
@@ -14,9 +14,8 @@ def create_user(user: schemas.UserCreate, db: Session = Depends(getDB)):
     db_user = users_controller.get_user_by_email(db, email=user.email)
     if db_user:
         raise HTTPException(status_code=400, detail="Email already registered")
-    user_2= users_controller.create_user(db=db, user=user)
-    print(user_2.hashed_password)
-    return user_2
+    newUser = users_controller.create_user(db=db, user=user)
+    return newUser
 
 #  Get users
 @router.get("/users/", response_model=List[schemas.User], tags=['User'])
