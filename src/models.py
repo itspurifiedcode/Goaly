@@ -11,7 +11,6 @@ class User(Base):
     email = Column(String, unique=True, index=True)
     hashed_password = Column(String)
     isActive = Column(Boolean, default=True)
-
     goals = relationship("Goal", back_populates="owner")
 
 
@@ -24,11 +23,12 @@ class Goal(Base):
     userId = Column(Integer, ForeignKey("users.id"))
     isActive = Column(Boolean, default=True)
     owner = relationship("User", back_populates="goals")
+    tasks = relationship("Todo", back_populates="goal")
+class Todo(Base):
+    __tablename__ = "todos"
 
-# class Todo(Base):
-#     __tablename__ = "todo"
-
-#     id = Column(Integer, primary_key=True, index=True)
-#     task = Column(String, index=True)
-#     ownerId = Column(Integer, ForeignKey("users.id"))
-#     isCompleted = Column(Boolean, default=True)
+    id = Column(Integer, primary_key=True, index=True)
+    task = Column(String, index=True)
+    goalId = Column(Integer,ForeignKey("goals.id"))
+    isActive = Column(Boolean, default=True)
+    goal = relationship("Goal", back_populates="tasks")

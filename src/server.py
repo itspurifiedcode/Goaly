@@ -9,6 +9,7 @@ models.Base.metadata.create_all(bind=engine)
 app = FastAPI()
 app.include_router(goal_api.router)
 app.include_router(user_api.router)
+app.include_router(todo_api.router)
 
 def error_response():
     raise HTTPException(status_code=404, detail="Item not found")

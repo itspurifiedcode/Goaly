@@ -21,6 +21,10 @@ def add_goal(goal:schemas.GoalCreate, db: Session = Depends(getDB)):
     new_goal = goals_controller.create_goal(db, goal=goal)
     return new_goal
 
-@router.get("/api/goals", tags=["goal"])
-def get_goals():
-    return {"goals":[]}
+@router.get("/goals/{user_id}", response_model=list[schemas.Goal], tags=['goal'])
+def read_user(user_id: int, db: Session = Depends(getDB)):
+    db_goal = goals_controller.get_goals(db, user_id=user_id)
+    print(db_goal)
+    if db_goal is None:
+        raise HTTPException(status_code=404, detail="Goal not found")
+    return db_goal
