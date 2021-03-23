@@ -5,10 +5,12 @@ class TodoBase(BaseModel):
     task: str
     goalId: int
     isActive: bool = True
+   
     class Config:
         orm_mode = True
     
 class TodoCreate(TodoBase):
-    pass   
+    pass  
+
 class Todo(TodoBase):
-    pass   
+    id : int

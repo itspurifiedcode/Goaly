@@ -1,13 +1,13 @@
 from typing import List, Optional
-from pydantic import BaseModel
 from .todo_schema import Todo
+from pydantic import BaseModel
 
 class GoalBase(BaseModel):
     title: str
     description: Optional[str] = None
-    userId: str
+    userId: int
     isActive: bool = True
-    tasks: List[Todo] = []
+    
     class Config:
         orm_mode = True
     
@@ -16,3 +16,7 @@ class GoalCreate(GoalBase):
 
 class Goal(GoalBase):
     id: int
+    tasks: List[Todo] = []
+
+# class GoalWithTodo(Goal):
+    
