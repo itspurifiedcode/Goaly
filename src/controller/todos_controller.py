@@ -9,3 +9,7 @@ def create_todo(db: Session, todo: schemas.TodoCreate):
     db.refresh(new_todo)
     return new_todo
 
+def get_todos_by_goalID(db: Session,goal_id: int):
+    return db.query(models.Todo).filter(models.Todo.goalId == goal_id).all()
+    
+
