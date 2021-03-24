@@ -31,4 +31,5 @@ class Todo(Base):
     task = Column(String, index=True)
     goalId = Column(Integer,ForeignKey("goals.id"))
     isActive = Column(Boolean, default=True)
+    imgUrl= Column(String, index=True)
     goal = relationship("Goal", back_populates="tasks")

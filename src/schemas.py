@@ -7,6 +7,7 @@ class TodoBase(BaseModel):
     task: str
     goalId: int
     isActive: bool = True
+    
     class Config:
         orm_mode = True
     
@@ -14,7 +15,8 @@ class TodoCreate(TodoBase):
     pass   
 class Todo(TodoBase):
     pass   
-
+class TodoImageUpload(TodoBase):
+    imgUrl:str 
 
 class GoalBase(BaseModel):
     title: str
