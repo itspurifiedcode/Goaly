@@ -1,8 +1,7 @@
 from sqlalchemy import Boolean, Column, ForeignKey, Integer, String
 from sqlalchemy.orm import relationship
-
 from .database import Base
-
+from sqlalchemy_utils import URLType
 
 class User(Base):
     __tablename__ = "users"
@@ -34,5 +33,6 @@ class Todo(Base):
     task = Column(String, index=True)
     goalId = Column(Integer,ForeignKey("goals.id"))
     isActive = Column(Boolean, default=True)
+    url = Column(String)
 
     goal = relationship("Goal", back_populates="tasks")
