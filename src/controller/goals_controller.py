@@ -9,6 +9,6 @@ def create_goal(db: Session, goal: schemas.GoalCreate):
     db.refresh(new_goal)
     return new_goal
 
-def get_goals(db: Session, user_id):
+def get_goals(db: Session, user_id: int):
     return db.query(models.Goal).filter(models.Goal.userId == user_id).all()
 
