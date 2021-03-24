@@ -15,7 +15,6 @@ def save_file_to_disk(uploaded_file, path=".", save_as="default"):
     temp_file = os.path.join(path, save_as + extension)
     with open(temp_file, "wb") as buffer:
         shutil.copyfileobj(uploaded_file.file, buffer)
-        print(temp_file)
     return temp_file
 
 #for password hashing

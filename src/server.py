@@ -18,9 +18,3 @@ def error_response():
 @app.get("/")
 def read_root():
     return {"Hello": "Merk"}
-
-
-@app.post("/uploadimage/")
-def upload_image(image: UploadFile = File(...)):
-    return  save_file_to_disk(image, path="attachments", save_as="temp")
-
