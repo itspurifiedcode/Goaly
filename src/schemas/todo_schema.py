@@ -5,7 +5,8 @@ class TodoBase(BaseModel):
     task: str
     goalId: int
     isActive: bool = True
-   
+    url: str
+    
     class Config:
         orm_mode = True
     
