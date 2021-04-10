@@ -10,7 +10,6 @@ class User(Base):
     email = Column(String, unique=True, index=True)
     hashedPassword = Column(String)
     isActive = Column(Boolean, default=True)
-
     goals = relationship("Goal", back_populates="owner")
 
 
@@ -22,7 +21,6 @@ class Goal(Base):
     description = Column(String, index=True)
     userId = Column(Integer, ForeignKey("users.id"))
     isActive = Column(Boolean, default=True)
-
     owner = relationship("User", back_populates="goals")
     tasks = relationship("Todo", back_populates="goal")
 

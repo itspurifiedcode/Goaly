@@ -1,26 +1,41 @@
 <template>
-  <div class="md:container md:mx-auto ">
-    <column-1/>
-</div>
+   <div class="flex flex-row h-screen">
+    <LeftLogoBar/>
+    <LeftNavBar/>
+    <MainWindow/>
+  </div>
+
 </template>
 
 <script>
-import column1  from './components/column1.vue'
+import LeftNavBar from './components/LeftNavBar'
+import LeftLogoBar from './components/leftLogoBar'
+import MainWindow from './components/MainWindow.vue'
 export default {
   name: 'App',
   components: {
-    column1
+    LeftNavBar,
+    LeftLogoBar,
+    MainWindow
   }
 }
 </script>
 
 <style>
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'Poppins', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+  color: #d7d7d8;
   margin-top: 60px;
 }
+body{
+  font-family: 'Poppins', sans-serif;  
+}
+.logo{
+  color: #000;
+}
+
 </style>
