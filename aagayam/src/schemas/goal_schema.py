@@ -5,14 +5,13 @@ from pydantic import BaseModel
 class GoalBase(BaseModel):
     title: str
     description: Optional[str] = None
-    userId: int
     isActive: bool = True
     
     class Config:
         orm_mode = True
     
 class GoalCreate(GoalBase):
-    pass   
+    userId: int   
 
 class Goal(GoalBase):
     id: int
