@@ -1,4 +1,6 @@
 from typing import List, Optional
+
+from .goal_schema import Goal
 from pydantic import BaseModel
 
 class AuthBase(BaseModel):
@@ -14,3 +16,4 @@ class Token(BaseModel):
     
 class TokenData(BaseModel):
     email: Optional[str] = None
+
