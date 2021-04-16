@@ -1,6 +1,6 @@
 <template>
 
-<div class="bg-gray-100">
+<div class="bg-gray-100 h-100">
 <!-- card start-->
  <div >
   <div class="p-6 max-w-sm m-4 bg-white rounded-xl shadow-md flex items-center space-x-4 " v-for="goal in posts" :key="goal.posts">
