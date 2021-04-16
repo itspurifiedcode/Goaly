@@ -1,7 +1,7 @@
 <template>
  
 <div class="p-8  my-10 flex-auto">
-   <h1 class="font-bold text-5xl">Design</h1> 
+   <h1 class="font-bold text-5xl">Goaly</h1> 
    <ul class="flex gap-20 mt-8 border-b-2 border-grey-200">
        <li class="font-bold mx-3 px-5 border-b-4 border-blue-500">Todo</li>
        <li class="font-medium mx-3 px-5">Notes</li>
