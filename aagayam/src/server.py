@@ -16,6 +16,15 @@ app.include_router(todo_api.router)
 def error_response():
     raise HTTPException(status_code=404, detail="Item not found")
 
-@app.get("/")
+@app.get("/api")
 def read_root():
-    return {"Hello": "Merk"}
+    return {
+"goals": [
+        {
+        "name": "GOALY", "description":"Dummy Desc"
+        },
+        {
+        "name": "VOICE CHANNEL","description":"Dummy Desc"
+        }
+]
+}
