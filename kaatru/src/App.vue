@@ -1,10 +1,10 @@
 <template>
-  <div class="flex mb-4 relative ">
+  <div class="flex relative h-screen">
     <div class="hidden md:block w-20 p-4 fixed h-full bg-white z-10 bg-blue-600 ">
       <LeftLogoBar />
     </div>
 
-    <div class="flex w-full relative bg-white">
+    <div class="flex w-full relative bg-white ml-20">
       <LeftNavBar />
       <MainWindow />
     </div>
