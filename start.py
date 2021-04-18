@@ -24,9 +24,9 @@ else:
         os.chdir(aagayamPath)
         os.chdir(f"{aagayamPath}\\env\\Scripts")
         command = f"cd {aagayamPath}/env/Scripts & activate & cd ../../ && uvicorn src.server:app --host 0.0.0.0 --port 8000 --reload"
-        subprocess.Popen(f'cmd.exe /K {command}') 
+        subprocess.Popen(f'cmd.exe /K {command}', creationflags=subprocess.CREATE_NEW_CONSOLE) 
         webbrowser.open('http://localhost:8000', new=2)
-        subprocess.Popen(f'cmd.exe /K cd {rootPath}/kaatru && npm run serve') 
+        subprocess.Popen(f'cmd.exe /K cd {rootPath}/kaatru && npm run serve', creationflags=subprocess.CREATE_NEW_CONSOLE) 
         webbrowser.open('http://localhost:8080', new=2)
 
 
