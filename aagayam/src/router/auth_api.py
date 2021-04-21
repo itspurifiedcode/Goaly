@@ -15,7 +15,7 @@ def user_login(user: OAuth2PasswordRequestForm = Depends(), db: Session = Depend
     if dbUser:
         checkPassword = Hash.verify_password(user.password, dbUser.hashedPassword)
         if checkPassword:
-            access_token = utils.create_access_token(data={"email": dbUser.email})
+            access_token = utils.create_access_token(data={"email": dbUser.email, "id":dbUser.id})
             return {"access_token": access_token, "token_type": "bearer"}
 
         else:

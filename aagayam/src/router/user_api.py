@@ -11,7 +11,7 @@ from src.controller import users_controller, auth_controller
 router = APIRouter()
 # Add user 
 @router.post("/users/", response_model=user_schema.User, tags=['User'])
-def create_user(user: user_schema.UserCreate, db: Session = Depends(getDB), current_user: schemas.User = Depends(auth_controller.get_current_user)):
+def create_user(user: user_schema.UserCreate, db: Session = Depends(getDB)):
     db_user = users_controller.get_user_by_email(db, email=user.email)
     if db_user:
         raise HTTPException(status_code=400, detail="Email already registered")

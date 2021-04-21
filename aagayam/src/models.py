@@ -1,5 +1,6 @@
 from sqlalchemy import Boolean, Column, ForeignKey, Integer, String
 from sqlalchemy.orm import relationship
+from sqlalchemy.sql.sqltypes import ARRAY
 from .database import Base
 from sqlalchemy_utils import URLType
 
@@ -22,9 +23,11 @@ class Goal(Base):
     description = Column(String, index=True)
     userId = Column(Integer, ForeignKey("users.id"))
     isActive = Column(Boolean, default=True)
+    attachmentIDs = Column(ARRAY(String))
 
     owner = relationship("User", back_populates="goals")
     tasks = relationship("Todo", back_populates="goal")
+    # attachments = relationship("Attachment", back_populates="goal")
 
 class Todo(Base):
     __tablename__ = "todos"
@@ -36,3 +39,13 @@ class Todo(Base):
     url = Column(String)
 
     goal = relationship("Goal", back_populates="tasks")
+
+class Attachment(Base):
+    __tablename__ = "attachments"
+
+    id = Column(Integer, primary_key=True, index=True)
+    original_name = Column(String, index=True)
+    given_name = Column(String, index=True)
+    attachment_url = Column(String)
+
+    # goal = relationship("Goal", back_populates="attachments")
