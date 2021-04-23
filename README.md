@@ -2,6 +2,9 @@
 
 ADDED README
 
+
+The open source notio alternative
+
 aagayam - Cloud Server(Backend) -> FastApi
 
 ## Create venv
