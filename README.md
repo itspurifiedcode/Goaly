@@ -3,7 +3,10 @@
 ADDED README
 
 
-The open source notio alternative
+We are on the progress of building an open source alternative for Notion 
+
+This is in the very early stages we are 4 people trying to build this,
+We would love to have you as a contributer and tester.
 
 aagayam - Cloud Server(Backend) -> FastApi
 
